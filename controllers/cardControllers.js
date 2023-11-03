@@ -1,4 +1,3 @@
-// const dbPool = require("../db/pgClient"); if we r connected to a database
 let jsonData = require("../data.json");
 /**
  * Controller to serve all ducks in the database.
@@ -25,16 +24,14 @@ const getAllPokemons = (req, res) => {
  * @response Single pokemon object
  */
 
-//   req=request
 const getSinglePokemon = (req, res) => {
   try {
     const { pokeName } = req.params;
-    //    single object in array=pokemon= all details-name, type, base
     const findPokemon = dataWithSprites.find(
       (pokemon) => pokeName.toLowerCase() === pokemon.name.english.toLowerCase()
     );
     //   pokeName is in URL= charmander
-    // whatever user types, just make it lowercase //
+
     if (!findPokemon) throw new Error("Pokemon not found.");
 
     return res.json(findPokemon);
@@ -48,7 +45,6 @@ const getPokemonById = (req, res) => {
   try {
     const { id } = req.params;
 
-    //id from params is string, so can't use strict equality without converting it, should probably be done at some point, but this works for now
     const findPokemon = dataWithSprites.find((pokemon) => id == pokemon.id);
 
     if (!findPokemon) throw new Error("Pokemon not found.");
@@ -73,8 +69,6 @@ const getPokeInfo = (req, res) => {
     } else {
       return res.status(404).json({ error: "Info not found" });
     }
-
-    //   info= type or base.. info is accessed via bracket notation, placeholder for all keys not a specific key
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
