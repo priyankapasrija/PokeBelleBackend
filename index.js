@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) =>
   res.send(
-    '<p>Welcome to the PokeFight API! Go to <a href="/pokemon">/pokemon</a> to see cool things happening</p>'
+    '<p>Welcome to the Pokemon API! Click here to reach there <a href="/pokemon">pokemon</a>'
   )
 );
 
