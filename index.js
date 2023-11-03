@@ -1,8 +1,6 @@
-// require('dotenv').config(); u can write it here or in package.json (scripts),
-//  to add env file functionality. normally vite does it automatically in frontend
 const express = require("express");
 const app = express();
-// const dbPool = require("./db/pgClient");
+
 const {
   getAllPokemons,
   getSinglePokemon,
@@ -11,17 +9,11 @@ const {
 } = require("./controllers/cardControllers");
 const cors = require("cors");
 
-const port = process.env.PORT || 7000;
+const port = process.env.PORT || 8000;
 app.use(cors());
 
-// console.log(process.env);
-// to see in terminal all the credentials added in env file
-
-// let jsonData = require(‘./data.json’);
 app.use(express.json());
-// We enable data to be interpreted as JSON
-// And we also enable the body to be interpreted as urlencoded content
-// This is important for step 6(singleCard) and the view engine, since html forms send data as x-www-form-urlencoded
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) =>
