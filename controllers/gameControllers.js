@@ -1,5 +1,3 @@
-// gameControllers.js
-
 // Function to handle saving game results
 exports.saveGame = (req, res) => {
   // Placeholder logic
